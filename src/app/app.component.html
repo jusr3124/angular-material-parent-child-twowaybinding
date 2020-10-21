@@ -2,14 +2,15 @@
 
 
   <div>
-    <br />
+
     <mat-form-field>
       <input matInput [(ngModel)]="selectedIntValue" (keyup)="changeValue($event)">
     </mat-form-field>
+    <br />
     <mat-form-field>
       <mat-select [(value)]="selected" placeholder="Item">
         <mat-option *ngFor="let selectedOne of selectedList; let i = index" value="{{selectedOne}}"
-          (onChange)="test(i+1);">
+          (click)="test(i+1);">
           {{i + 1}} - {{selectedOne}}
         </mat-option>
       </mat-select>
@@ -17,11 +18,17 @@
 
   </div>
 
-  <p>You selected : {{selected}}</p>
-  <p>You selected IntValue: {{intValue}}</p>
+  <p>
+    You selected : {{selected}}
+  </p>
+  <p>You changed the selected IntValue:
+    <strong>
+      {{intValue}}
+    </strong>
+  </p>
 
-  
-  
+
+
   <button mat-raised-button (click)="button()">Click</button>
   <br />
 
@@ -36,4 +43,3 @@
   <br />
 
 </div>
-
