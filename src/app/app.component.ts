@@ -13,21 +13,37 @@ export class AppComponent implements OnInit {
 
   isDisabled: boolean;
 
-  selected = 'Pizza';
+  intValue: number;
+
+  selectedIntValue: number;
+
+  selected: string;
 
   selectedList = [
-    'Hallo',
-    'Dag',
-    'Jojo',
-    'Gangster',
-    'Pizza',
+    'String',   //1
+    'Date',     //2
+    'Integer',  //3
+    'List',     //4
+    'FreeList', //5
   ];
 
   ngOnInit(): void {
+    // this.selectedIntValue = 4;
+    this.selected = this.selectedList.find(x => x == this.selectedList[this.selectedIntValue-1]);
   }
-
+  
+  changeValue({value}){
+    this.selected = this.selectedList.find(x => x == this.selectedList[this.selectedIntValue-1]);
+    console.log(this.selectedIntValue);
+    
+  }
 
   button() {
     this.isDisabled = !this.isDisabled;
   }
+
+  test(i: number) {
+    this.intValue = i;
+  }
+
 }

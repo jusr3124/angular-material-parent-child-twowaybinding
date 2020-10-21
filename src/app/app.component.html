@@ -1,30 +1,39 @@
-<button mat-raised-button (click)="button()">Click</button>
+<div style="margin: 3%;">
 
-<br />
-<mat-form-field>
-  <input matInput [(ngModel)]="selected" />
-</mat-form-field>
 
-<div *ngIf="isDisabled">
-  <app-benamingen></app-benamingen>
+  <div>
+    <br />
+    <mat-form-field>
+      <input matInput [(ngModel)]="selectedIntValue" (keyup)="changeValue($event)">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(value)]="selected" placeholder="Item">
+        <mat-option *ngFor="let selectedOne of selectedList; let i = index" value="{{selectedOne}}"
+          (onChange)="test(i+1);">
+          {{i + 1}} - {{selectedOne}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+  <p>You selected : {{selected}}</p>
+  <p>You selected IntValue: {{intValue}}</p>
+
+  
+  
+  <button mat-raised-button (click)="button()">Click</button>
+  <br />
+
+  <div *ngIf="isDisabled">
+    <app-benamingen></app-benamingen>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
 </div>
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
 
-<div>
-
-  <mat-form-field>
-    <mat-select [(value)]="selected" placeholder="Food">
-      <mat-option *ngFor="let selectedOne of selectedList; let i = index" value="{{selectedOne}}">
-        {{selectedOne}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-</div>
-
-<p>You selected: {{selected}}</p>
